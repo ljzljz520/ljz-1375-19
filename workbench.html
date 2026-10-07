@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>规则与来源工作台 - 西安文化</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/guide.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="wb">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">西安·长兴坊</div>
+                <ul>
+                    <li><a href="index.html">历史背景</a></li>
+                    <li><a href="activities.html">民俗活动</a></li>
+                    <li><a href="travel.html">旅游指南</a></li>
+                    <li><a href="guide.html">礼仪提示</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="section-title"><h2>规则与来源工作台</h2></div>
+        <div class="identity">
+            <span>当前身份</span>
+            <select id="wb-role">
+                <option value="editor">编辑(可起草/修订)</option>
+                <option value="reviewer">审校(可批准/裁定/撤回/发布)</option>
+            </select>
+            <input id="wb-who" value="editor_li" size="14" title="操作人">
+            <span id="wb-msg" class="msg"></span>
+        </div>
+
+        <div class="wb-tabs">
+            <button data-tab="rules" class="active">规则</button>
+            <button data-tab="statements">陈述与翻译</button>
+            <button data-tab="sources">来源</button>
+            <button data-tab="conflicts">冲突审批</button>
+            <button data-tab="publish">发布与已读</button>
+            <button data-tab="ops">活动与区域</button>
+        </div>
+
+        <section class="wb-panel" id="panel-rules">
+            <div class="wb-form">
+                <div class="field"><span id="rule-form-title">新建规则</span></div>
+                <input type="hidden" id="rule-id"><input type="hidden" id="rule-version">
+                <div class="field">陈述 <select id="rule-statement"></select></div>
+                <div class="field">效力
+                    <select id="rule-effect">
+                        <option value="allow">允许</option><option value="forbid">禁止</option>
+                        <option value="require">应当</option><option value="advise">建议</option>
+                    </select>
+                </div>
+                <div class="field">受众
+                    <label><input type="checkbox" name="rule-aud" value="resident">居民</label>
+                    <label><input type="checkbox" name="rule-aud" value="tourist" checked>游客</label>
+                    <label><input type="checkbox" name="rule-aud" value="staff">工作人员</label>
+                </div>
+                <div class="field">阶段
+                    <label><input type="checkbox" name="rule-phase" value="before">前</label>
+                    <label><input type="checkbox" name="rule-phase" value="during" checked>中</label>
+                    <label><input type="checkbox" name="rule-phase" value="after">后</label>
+                </div>
+                <div class="field">区域 <select id="rule-zone"></select></div>
+                <div class="field">活动 <select id="rule-event"></select></div>
+                <div class="field">优先级 <input id="rule-priority" type="number" value="50" size="4"></div>
+                <div class="field">来源(可多选) <select id="rule-sources" multiple size="3"></select></div>
+                <div class="field">来源立场
+                    <select id="rule-stance"><option value="supports">支持</option><option value="opposes">反对</option></select>
+                </div>
+                <div class="field">当地解释 <input id="rule-note" size="24" placeholder="可选"></div>
+                <button id="rule-save" class="primary">保存</button>
+                <button id="rule-reset">清空</button>
+            </div>
+            <div id="wb-rules-table"></div>
+        </section>
+
+        <section class="wb-panel" id="panel-statements" style="display:none">
+            <div class="wb-form">
+                <div class="field">键 <input id="st-key" placeholder="如 museum.umbrella"></div>
+                <div class="field">类型
+                    <select id="st-kind">
+                        <option value="advisory">建议类</option><option value="mandatory">强制类</option>
+                        <option value="fact">事实类</option>
+                    </select>
+                </div>
+                <div class="field">中文文本 <input id="st-text" size="40"></div>
+                <button id="st-create" class="primary">新建陈述</button>
+            </div>
+            <div id="wb-statements-table"></div>
+        </section>
+
+        <section class="wb-panel" id="panel-sources" style="display:none">
+            <div class="wb-form">
+                <div class="field">标题 <input id="src-title" size="30"></div>
+                <div class="field">发布方 <input id="src-publisher"></div>
+                <div class="field">链接 <input id="src-url" size="24"></div>
+                <button id="src-create" class="primary">登记来源</button>
+            </div>
+            <div id="wb-sources-table"></div>
+        </section>
+
+        <section class="wb-panel" id="panel-conflicts" style="display:none">
+            <div id="wb-conflicts"></div>
+        </section>
+
+        <section class="wb-panel" id="panel-publish" style="display:none">
+            <h3>翻译依据状态(发布前核查哪些语种仍对应旧依据)</h3>
+            <div id="wb-i18n"></div>
+            <div class="wb-form">
+                <div class="field">发布备注 <input id="pub-note" size="30" placeholder="可选"></div>
+                <button id="pub-create" class="primary">发布批准集合</button>
+            </div>
+            <h3>历史发布</h3>
+            <table class="wb"><thead><tr><th>ID</th><th>时间</th><th>发布人</th><th>条目数</th><th>语种状态</th><th>出口</th></tr></thead>
+            <tbody id="wb-pubs"></tbody></table>
+            <h3>访客已读查询</h3>
+            <div class="wb-form">
+                <div class="field">访客 ID <input id="read-vid" size="30" placeholder="guide 页 localStorage 中的 visitorId"></div>
+                <button id="read-lookup">查询</button>
+            </div>
+            <div id="read-result"></div>
+        </section>
+
+        <section class="wb-panel" id="panel-ops" style="display:none">
+            <h3>活动日程(改期立即影响阶段判定与缓存)</h3>
+            <table class="wb"><thead><tr><th>活动</th><th>起止</th><th>版本</th><th>操作</th></tr></thead>
+            <tbody id="wb-events"></tbody></table>
+            <h3>区域边界</h3>
+            <table class="wb"><thead><tr><th>区域</th><th>边界</th><th>版本</th><th>操作</th></tr></thead>
+            <tbody id="wb-zones"></tbody></table>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 西安文化推广中心 | 让世界看见长安</p>
+        </div>
+    </footer>
+    <script src="js/workbench.js"></script>
+</body>
+</html>

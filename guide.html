@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>礼仪提示 - 西安文化</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/guide.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">西安·长兴坊</div>
+                <ul>
+                    <li><a href="index.html">历史背景</a></li>
+                    <li><a href="activities.html">民俗活动</a></li>
+                    <li><a href="travel.html">旅游指南</a></li>
+                    <li><a href="guide.html">礼仪提示</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <h1>礼仪提示</h1>
+        <p>规则与来源工作台 · 居民 / 游客 / 现场工作人员 同源视图</p>
+    </section>
+
+    <main class="container">
+        <div class="controls">
+            <div class="field">
+                <label>受众</label>
+                <div class="seg" id="seg-audience">
+                    <button data-value="resident">居民</button>
+                    <button data-value="tourist" class="active">游客</button>
+                    <button data-value="staff">现场工作人员</button>
+                </div>
+            </div>
+            <div class="field">
+                <label>活动阶段</label>
+                <div class="seg" id="seg-phase">
+                    <button data-value="auto" class="active">自动</button>
+                    <button data-value="before">活动前</button>
+                    <button data-value="during">活动中</button>
+                    <button data-value="after">活动后</button>
+                </div>
+            </div>
+            <div class="field">
+                <label>语言</label>
+                <select id="sel-lang">
+                    <option value="zh">中文</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>区域</label>
+                <select id="sel-zone"><option value="">全部区域</option></select>
+            </div>
+            <div class="field">
+                <label>活动</label>
+                <select id="sel-event"><option value="">不限活动</option></select>
+            </div>
+        </div>
+
+        <div id="cache-banner" class="banner" style="display:none"></div>
+        <div id="meta-bar" class="meta-bar"></div>
+        <section id="items"></section>
+
+        <p style="margin: 1.5rem 0; font-size: .85rem; color: #6b5410;">
+            内容治理: <a href="workbench.html">规则与来源工作台</a> ·
+            <a href="print.html">打印卡</a> · <a href="share.html">分享页</a>
+            (打印与分享均来自同一批准集合)
+        </p>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 西安文化推广中心 | 让世界看见长安</p>
+            <p>待核条目以现场工作人员与最新公告为准</p>
+        </div>
+    </footer>
+    <script src="js/guide.js"></script>
+</body>
+</html>

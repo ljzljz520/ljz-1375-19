@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>礼仪提示分享页 - 西安文化</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/guide.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <div class="pub-toolbar">
+            <strong>分享页</strong>
+            <label>受众筛选
+                <select id="pub-audience">
+                    <option value="">全部</option>
+                    <option value="resident">居民</option>
+                    <option value="tourist">游客</option>
+                    <option value="staff">现场工作人员</option>
+                </select>
+            </label>
+            <label>语言
+                <select id="pub-lang">
+                    <option value="zh">中文</option>
+                    <option value="en">English</option>
+                </select>
+            </label>
+            <button class="btn" id="copy-link">复制分享链接</button>
+            <a href="guide.html">返回礼仪提示</a>
+        </div>
+        <div class="banner info">本页与打印卡来自同一批准集合; "建议"类内容为文明倡导, 不构成处罚依据。</div>
+        <div id="pub"></div>
+    </main>
+    <script src="js/publication.js"></script>
+    <script>
+        // 与打印卡共用 js/publication.js 与同一批准集合
+        const params = new URLSearchParams(location.search);
+        const pubId = params.get('pub') || 'latest';
+        async function draw() {
+            await PublicationUI.renderInto(document.getElementById('pub'), {
+                pubId,
+                audience: document.getElementById('pub-audience').value || null,
+                lang: document.getElementById('pub-lang').value
+            });
+        }
+        document.getElementById('pub-audience').addEventListener('change', draw);
+        document.getElementById('pub-lang').addEventListener('change', draw);
+        document.getElementById('copy-link').addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(location.href);
+                alert('链接已复制');
+            } catch {
+                prompt('复制以下链接:', location.href);
+            }
+        });
+        draw();
+    </script>
+</body>
+</html>

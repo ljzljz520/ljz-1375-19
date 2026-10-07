@@ -1,0 +1,121 @@
+/* 礼仪提示 / 工作台 / 发布物 样式(沿用站点唐风配色) */
+:root {
+  --pending-stripe: repeating-linear-gradient(45deg, #b89b3e 0 8px, #8a742f 8px 16px);
+}
+.guide-hero {
+  background: linear-gradient(rgba(26,0,0,.72), rgba(26,0,0,.72)), var(--paper);
+  color: var(--gold);
+  padding: 2.2rem 0 1.6rem;
+  text-align: center;
+}
+.guide-hero h1 { font-size: 2rem; letter-spacing: .2em; }
+.guide-hero p { opacity: .85; margin-top: .4rem; }
+
+.controls {
+  display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end;
+  background: #fffdf5; border: 1px solid #d9c98a; border-radius: 10px;
+  padding: 1rem 1.2rem; margin: 1.2rem 0;
+}
+.controls .field { display: flex; flex-direction: column; gap: .3rem; }
+.controls label { font-size: .8rem; color: #7a6520; letter-spacing: .1em; }
+.seg { display: inline-flex; border: 1px solid #b89b3e; border-radius: 6px; overflow: hidden; }
+.seg button {
+  background: transparent; border: 0; padding: .42rem .9rem; cursor: pointer;
+  font-family: inherit; color: #6b5410;
+}
+.seg button.active { background: var(--primary-red); color: var(--gold); }
+.controls select, .controls input {
+  font-family: inherit; padding: .4rem .5rem; border: 1px solid #b89b3e; border-radius: 6px; background: #fff;
+}
+
+.meta-bar {
+  display: flex; flex-wrap: wrap; gap: 1rem; font-size: .82rem; color: #6b5410;
+  margin-bottom: 1rem;
+}
+.meta-bar span { background: #f3ead0; border-radius: 4px; padding: .15rem .55rem; }
+
+.banner { border-radius: 8px; padding: .6rem 1rem; margin: .8rem 0; font-size: .9rem; }
+.banner.warn { background: #fff4d6; border: 1px solid #d9b23c; color: #6b5410; }
+.banner.error { background: #fbe3e3; border: 1px solid #c00; color: #7a0000; }
+.banner.info { background: #e8f0e6; border: 1px solid #6a8f5f; color: #2f4f28; }
+
+.g-item {
+  background: #fffdf5; border: 1px solid #d9c98a; border-left-width: 6px; border-radius: 8px;
+  padding: 1rem 1.2rem; margin-bottom: 1rem;
+}
+.g-item.emphasis-high { border-left-color: var(--primary-red); }
+.g-item.emphasis-normal { border-left-color: #b89b3e; }
+.g-item.emphasis-low { border-left-color: #cfc39a; }
+.g-item.pending { background: #fffbe9; }
+.badges { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .5rem; }
+.badge {
+  font-size: .75rem; padding: .12rem .55rem; border-radius: 999px; letter-spacing: .05em;
+  border: 1px solid transparent;
+}
+.badge.allow { background: #e2f1e2; color: #1f5c1f; border-color: #79a879; }
+.badge.forbid { background: #fbe3e3; color: #8b0000; border-color: #c00; }
+.badge.require { background: #fdeed3; color: #8a5a00; border-color: #d9a23c; }
+.badge.advise { background: #e3ecf7; color: #1d4e7e; border-color: #7ea3c7; }
+.badge.kind { background: #efe8d8; color: #6b5410; }
+.badge.pending { background: var(--pending-stripe); color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.4); }
+.badge.mark { background: var(--primary-red); color: var(--gold); }
+.badge.i18n { background: #efe3f7; color: #5c2e7e; border-color: #a97ec7; }
+.badge.read { background: #eee; color: #666; }
+.g-text { font-size: 1.08rem; margin: .3rem 0; }
+.g-note { font-size: .88rem; color: #6b5410; margin: .3rem 0; }
+.g-sources { font-size: .8rem; color: #777; margin-top: .5rem; }
+.g-sources .revoked { text-decoration: line-through; color: #a33; }
+.g-sources .stance-opposes { color: #a33; }
+.g-candidates {
+  margin-top: .6rem; border: 1px dashed #b89b3e; border-radius: 6px; padding: .5rem .8rem;
+  font-size: .85rem; background: #fff;
+}
+.g-candidates li { margin-left: 1.2rem; }
+.fallback-note { font-size: .8rem; color: #5c2e7e; }
+
+/* 工作台 */
+.wb-tabs { display: flex; gap: .4rem; flex-wrap: wrap; margin: 1.2rem 0 .8rem; }
+.wb-tabs button {
+  font-family: inherit; padding: .5rem 1.1rem; cursor: pointer;
+  border: 1px solid #b89b3e; background: #fffdf5; border-radius: 6px 6px 0 0; color: #6b5410;
+}
+.wb-tabs button.active { background: var(--primary-red); color: var(--gold); }
+.wb-panel { background: #fffdf5; border: 1px solid #d9c98a; border-radius: 0 8px 8px 8px; padding: 1.2rem; }
+table.wb { width: 100%; border-collapse: collapse; font-size: .85rem; }
+table.wb th, table.wb td { border: 1px solid #e0d3a5; padding: .4rem .5rem; text-align: left; vertical-align: top; }
+table.wb th { background: #f3ead0; color: #6b5410; white-space: nowrap; }
+table.wb tr.stale-row { background: #fdf3e3; }
+table.wb tr.revoked-row { background: #fbeaea; }
+.wb form, .wb-form { display: flex; flex-wrap: wrap; gap: .6rem; align-items: flex-end; margin: .8rem 0; padding: .8rem; background: #f8f2df; border-radius: 8px; }
+.wb-form .field { display: flex; flex-direction: column; gap: .25rem; font-size: .8rem; color: #6b5410; }
+.wb input, .wb select, .wb textarea { font-family: inherit; padding: .35rem .45rem; border: 1px solid #b89b3e; border-radius: 5px; background: #fff; font-size: .85rem; }
+.wb button, .btn {
+  font-family: inherit; cursor: pointer; border: 1px solid #8a742f; border-radius: 5px;
+  background: #fff; color: #6b5410; padding: .35rem .8rem; font-size: .82rem;
+}
+.wb button.primary, .btn.primary { background: var(--primary-red); color: var(--gold); border-color: var(--primary-red); }
+.wb button.danger { color: #8b0000; border-color: #c00; }
+.identity { display: flex; gap: .6rem; align-items: center; font-size: .85rem; color: #6b5410; margin-top: .8rem; }
+.status-ok { color: #1f5c1f; } .status-pending { color: #8a5a00; } .status-retracted, .status-revoked { color: #8b0000; }
+.msg { font-size: .85rem; margin: .5rem 0; min-height: 1.2em; }
+.msg.err { color: #8b0000; } .msg.ok { color: #1f5c1f; }
+
+/* 发布物(打印卡/分享页共用) */
+.pub-head { border-bottom: 2px solid var(--primary-red); padding-bottom: .6rem; margin-bottom: 1rem; }
+.pub-head .pub-id { font-size: .8rem; color: #777; }
+.pub-group-title {
+  margin: 1.2rem 0 .5rem; padding: .3rem .7rem; background: var(--ink-black); color: var(--gold);
+  border-radius: 6px; font-size: 1rem; letter-spacing: .15em;
+}
+.pub-phase-title { margin: .8rem 0 .4rem; color: var(--primary-red); font-size: .95rem; }
+.pub-item { border: 1px solid #d9c98a; border-radius: 6px; padding: .6rem .9rem; margin-bottom: .5rem; background: #fffdf5; }
+.pub-item .badges { margin-bottom: .3rem; }
+.pub-disclaimer { margin-top: 1.4rem; font-size: .82rem; color: #6b5410; border-top: 1px dashed #b89b3e; padding-top: .6rem; }
+.pub-toolbar { display: flex; gap: .6rem; margin: 1rem 0; align-items: center; flex-wrap: wrap; }
+
+@media print {
+  header, footer, .pub-toolbar, .no-print { display: none !important; }
+  body { background: #fff; }
+  .pub-item, .pub-group-title { break-inside: avoid; }
+  .pub-group-title { background: #eee; color: #000; }
+}

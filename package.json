@@ -1,0 +1,10 @@
+{
+  "name": "xian-culture-guide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "西安文化站点 + 礼仪规则与来源工作台(全栈)",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "node --test test/"
+  }
+}
