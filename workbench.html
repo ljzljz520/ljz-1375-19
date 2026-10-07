@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>规则与来源工作台 - 西安·长兴坊</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/etiquette.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">西安·长兴坊</div>
+                <ul>
+                    <li><a href="index.html">历史背景</a></li>
+                    <li><a href="activities.html">民俗活动</a></li>
+                    <li><a href="travel.html">旅游指南</a></li>
+                    <li><a href="etiquette.html">礼仪提示</a></li>
+                    <li><a href="workbench.html">规则工作台</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="section-title" style="margin-top:2rem">
+            <h2>规则与来源工作台</h2>
+            <p>审校结论、来源撤销、冲突裁决、翻译滞后与发布快照</p>
+        </div>
+
+        <div class="wb-grid">
+            <div class="wb-panel">
+                <h3>待审批修订</h3>
+                <div id="wb-revisions"></div>
+            </div>
+            <div class="wb-panel">
+                <h3>冲突审批（显式裁决）</h3>
+                <div id="wb-conflicts"></div>
+            </div>
+            <div class="wb-panel">
+                <h3>来源管理（撤销仅标记，冲突来源保留）</h3>
+                <div id="wb-sources"></div>
+            </div>
+            <div class="wb-panel">
+                <h3>翻译状态（哪些语种仍对应旧依据）</h3>
+                <div id="wb-translations"></div>
+            </div>
+            <div class="wb-panel">
+                <h3>活动改期</h3>
+                <div id="wb-events"></div>
+            </div>
+            <div class="wb-panel">
+                <h3>区域边界</h3>
+                <div id="wb-zones"></div>
+            </div>
+            <div class="wb-panel">
+                <h3>发布批准集合（打印卡 / 分享页同源）</h3>
+                <div class="wb-row">
+                    <span>受众
+                        <select id="pub-audience">
+                            <option value="resident">居民</option>
+                            <option value="tourist" selected>游客</option>
+                            <option value="staff">现场工作人员</option>
+                        </select>
+                        阶段
+                        <select id="pub-phase">
+                            <option value="pre">活动前</option>
+                            <option value="during" selected>活动中</option>
+                            <option value="post">活动后</option>
+                        </select>
+                    </span>
+                    <span class="actions">
+                        <button class="btn primary" id="btn-publish">生成批准集合</button>
+                    </span>
+                </div>
+                <div id="wb-publications"></div>
+                <div class="wb-msg" id="pub-msg"></div>
+            </div>
+            <div class="wb-panel">
+                <h3>陈述与修订（共同陈述库）</h3>
+                <div id="wb-statements"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 西安文化推广中心 | 待核条目不进入批准集合</p>
+        </div>
+    </footer>
+    <script src="js/workbench.js"></script>
+</body>
+</html>

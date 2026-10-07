@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>礼仪提示 - 西安·长兴坊</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/etiquette.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">西安·长兴坊</div>
+                <ul>
+                    <li><a href="index.html">历史背景</a></li>
+                    <li><a href="activities.html">民俗活动</a></li>
+                    <li><a href="travel.html">旅游指南</a></li>
+                    <li><a href="etiquette.html">礼仪提示</a></li>
+                    <li><a href="workbench.html">规则工作台</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="section-title" style="margin-top:2rem">
+            <h2>礼仪提示</h2>
+            <p>相同事实引用共同陈述，不同受众仅调整侧重点</p>
+        </div>
+
+        <div class="etq-controls">
+            <div class="group">
+                <label>受众</label>
+                <div class="seg" id="seg-audience">
+                    <button data-v="resident">居民</button>
+                    <button data-v="tourist" class="active">游客</button>
+                    <button data-v="staff">现场工作人员</button>
+                </div>
+            </div>
+            <div class="group">
+                <label>活动阶段</label>
+                <div class="seg" id="seg-phase">
+                    <button data-v="pre">活动前</button>
+                    <button data-v="during" class="active">活动中</button>
+                    <button data-v="post">活动后</button>
+                </div>
+            </div>
+            <div class="group">
+                <label>区域</label>
+                <select id="sel-zone"></select>
+            </div>
+            <div class="group">
+                <label>语言</label>
+                <div class="seg" id="seg-lang">
+                    <button data-v="zh" class="active">中文</button>
+                    <button data-v="en">English</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="banners"></div>
+        <section id="confirmed"></section>
+        <section id="pending"></section>
+        <p class="tip-meta" id="ctx-line"></p>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 西安文化推广中心 | 礼仪提示由规则与来源工作台驱动</p>
+        </div>
+    </footer>
+    <script src="js/etiquette.js"></script>
+</body>
+</html>

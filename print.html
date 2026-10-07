@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>礼仪提示卡 - 批准集合</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/etiquette.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="no-print">
+        <div class="container">
+            <nav>
+                <div class="logo">西安·长兴坊</div>
+                <ul>
+                    <li><a href="etiquette.html">礼仪提示</a></li>
+                    <li><a href="workbench.html">规则工作台</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="print-sheet container">
+        <div class="section-title no-print" style="margin-top:2rem">
+            <h2 id="page-title">礼仪提示卡</h2>
+            <p id="page-sub">由批准集合快照生成</p>
+        </div>
+        <div class="no-print" style="margin:1rem 0">
+            <button class="btn primary" onclick="window.print()">打印</button>
+            <a class="btn" id="toggle-mode" href="#">切换 打印/分享 视图</a>
+        </div>
+        <div id="lang-report"></div>
+        <section id="cards"></section>
+        <p class="print-footer" id="footer-line"></p>
+    </main>
+
+    <script src="js/print.js"></script>
+</body>
+</html>
